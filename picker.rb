@@ -34,6 +34,9 @@ def featureB
 end
 
 def featureC(name)
+  if ARGV.empty?
+    exit
+  end
   name_r = Array.new # list name that random
   # open file and put all names into list.
   file = File.new("engineers.txt", "r") # open filr "name.txt".
@@ -48,3 +51,5 @@ end
 featureA()
 puts featureB # call function featureB
 featureC(ARGV)
+
+
