@@ -9,3 +9,19 @@ def pick_engineer
   }
   name_list[rand(name_list.length)] # return random name
 end
+
+def featureC
+  print "Search : "
+  name = gets.chomp # get name that you search.
+
+  # open file and put all names into list.
+  file = File.new("engineer.txt", "r") # open filr "name.txt".
+  File.readlines(file).each do |l| 
+    if l.upcase.match "#{name}".upcase
+      puts l   # show name that similar name that you search.
+    end
+  end  
+
+end
+
+featureC
