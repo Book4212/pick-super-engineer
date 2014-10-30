@@ -5,18 +5,13 @@ def pick_engineer
   name[rand(name.length)] # return name in text file which random
 end
 
-def featureB
-  subN = pick_engineer.split(' ') # split sub name with space bar
-  subN[0] + ' ' + subN[1][0] + '...' # return name with first next letter with '...'
-end
-
-puts featureB # call function featureB
+@ranName = pick_engineer
 
 def featureA()
   chose = Array.new()
   addot = Array.new()
   # push name from text file to array data
-  puts chose = pick_engineer
+  puts chose = @ranName
   # random name from array data
   addot = chose.split(' ')
 
@@ -34,5 +29,25 @@ def featureA()
   end
 end
 
-featureA()
+def featureB
+  subN = @ranName.split(' ') # split sub name with space bar
+  subN[0] + ' ' + subN[1][0] + '...' # return name with first next letter with '...'
+end
 
+def featureC
+  print "Search : "
+  name = gets.chomp # get name that you search.
+
+  # open file and put all names into list.
+  file = File.new("engineers.txt", "r") # open filr "name.txt".
+  File.readlines(file).each do |l| 
+    if l.upcase.match "#{name}".upcase
+      puts l   # show name that similar name that you search.
+    end
+  end  
+
+end
+
+featureA()
+puts featureB # call function featureB
+featureC
